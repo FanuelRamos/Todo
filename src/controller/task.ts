@@ -36,3 +36,21 @@ const readAllTasks = (request: Request, response: Response, next: NextFunction) 
             .catch((error) => response.status(500).json({ error }));
 }
 
+const updateTask = (request: Request, response: Response, next: NextFunction) => {
+    const taskId = request.params.taskId;
+
+    return Task.findById(taskId)
+            .then((task) => {
+                if(task) {
+                    task.set(request.body);
+
+                    return task
+                            .save()
+                            .then((task) => response.status(201).json({ task }))
+                            .catch((error) => response.status(500).json({ error }))
+                } else {
+                    response.status(404).json({ message: "Not Found!" });
+                }
+            })
+            .catch((error) => response.status(500).json({ error }));
+}
