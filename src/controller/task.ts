@@ -54,3 +54,14 @@ const updateTask = (request: Request, response: Response, next: NextFunction) =>
             })
             .catch((error) => response.status(500).json({ error }));
 }
+
+const deleteTask = (request: Request, response: Response, next: NextFunction) => {
+    const taskId = request.params.taskId;
+
+    return Task.findByIdAndDelete(taskId)
+            .then((task) => (task ? response.status(201).json({ message: 'Deleted' }) : response.status(404)
+            .json({ message: 'Not Found!'})))
+            .catch((error) => response.status(500).json({ error }));
+}
+
+export default { createTask, readTask, readAllTasks, updateTask, deleteTask };
