@@ -19,3 +19,12 @@ const createTask = (request: Request, response: Response, next: NextFunction) =>
             .then((task) => response.status(201).json({ task }))
             .catch((error) => response.status(500).json({ error }));
 }
+
+const readTask = (request: Request, response: Response, next: NextFunction) => {
+    const taskId = request.params.taskId;
+
+    return Task.findById(taskId)
+            .then((task) => (task ? response.status(200).json({ task }) : response.status(404).json({
+                message: "Not Found!"})))
+            .catch((error) => response.status(500).json({ error }));
+}
