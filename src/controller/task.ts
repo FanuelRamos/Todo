@@ -28,3 +28,11 @@ const readTask = (request: Request, response: Response, next: NextFunction) => {
                 message: "Not Found!"})))
             .catch((error) => response.status(500).json({ error }));
 }
+
+const readAllTasks = (request: Request, response: Response, next: NextFunction) => {
+    return Task.find()
+            .then((tasks) => (tasks ? response.status(200).json({ tasks }) : response.status(404).json({
+                message: "Not Found!"})))
+            .catch((error) => response.status(500).json({ error }));
+}
+
