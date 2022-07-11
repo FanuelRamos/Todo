@@ -1,5 +1,6 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
+// Task Interface
 export interface ITask {
     name: String;
     description: String;
@@ -10,6 +11,7 @@ export interface ITask {
 
 export interface ITaskModel extends ITask, Document {}
 
+// Create Task Model
 const TaskSchema: Schema = new Schema(
     {
         name: {

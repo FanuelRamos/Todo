@@ -4,6 +4,7 @@ import { Schemas, ValidateRequestBody } from "./../middleware/validateRequestBod
 
 const router = express.Router();
 
+// Routes
 router.post("/create", ValidateRequestBody(Schemas.task.create), controller.createTask);
 router.get("/:taskId", controller.readTask);
 router.get("/", controller.readAllTasks);

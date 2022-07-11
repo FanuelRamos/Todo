@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 import Task from "./../models/task";
 
+// Create Task Function
 const createTask = (request: Request, response: Response, next: NextFunction) => {
     const { name, description, start, finish } = request.body;
     
@@ -20,6 +21,7 @@ const createTask = (request: Request, response: Response, next: NextFunction) =>
             .catch((error) => response.status(500).json({ error }));
 }
 
+// Read a single Task acording the given ID
 const readTask = (request: Request, response: Response, next: NextFunction) => {
     const taskId = request.params.taskId;
 
@@ -29,6 +31,7 @@ const readTask = (request: Request, response: Response, next: NextFunction) => {
             .catch((error) => response.status(500).json({ error }));
 }
 
+// Read all task
 const readAllTasks = (request: Request, response: Response, next: NextFunction) => {
     return Task.find()
             .then((tasks) => (tasks ? response.status(200).json({ tasks }) : response.status(404).json({
@@ -36,6 +39,7 @@ const readAllTasks = (request: Request, response: Response, next: NextFunction) 
             .catch((error) => response.status(500).json({ error }));
 }
 
+// Update Task function
 const updateTask = (request: Request, response: Response, next: NextFunction) => {
     const taskId = request.params.taskId;
 
@@ -55,6 +59,7 @@ const updateTask = (request: Request, response: Response, next: NextFunction) =>
             .catch((error) => response.status(500).json({ error }));
 }
 
+//Delete task function
 const deleteTask = (request: Request, response: Response, next: NextFunction) => {
     const taskId = request.params.taskId;
 
