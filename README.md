@@ -1,7 +1,7 @@
 # Todo
 A to do API using NodeJS, TypeScript and MongoDB
 
-#Run The App
+# Run The App
 1 . Clone the project on github
 2 . open the folder on cli
 3 . type " yarn install " to install all dependences
