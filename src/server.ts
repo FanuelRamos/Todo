@@ -2,6 +2,7 @@ import express from "express";
 import http from "http";
 import mongoose from "mongoose";
 import { config } from "./config/config";
+import taskRoutes from "./routes/task";
 
 const app = express();
 
@@ -33,7 +34,7 @@ const startServer = () => {
     app.use(express.json());
 
     //Routes
-
+    app.use("/task", taskRoutes);
 
     //Error Handling
     app.use((request, response, next) => {
