@@ -24,7 +24,7 @@ const startServer = () => {
         console.log(`Incomming -> Method: [ ${request.method} ] - URL: [ ${request.url} ] - IP: [ ${request.socket.remoteAddress} ]`);
         response.on('finish', () => {
             //Log the responses
-            console.log(`Incomming -> Method: [${request.method}] - URL: [${request.url}] - IP: [${request.socket.remoteAddress}] - Status: [${response.statusCode}]`);
+            console.log(`Incomming -> Method: [ ${request.method} ] - URL: [ ${request.url} ] - IP: [ ${request.socket.remoteAddress} ] - Status: [ ${response.statusCode} ]`);
         });
 
         next();

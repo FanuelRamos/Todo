@@ -2,7 +2,7 @@ import mongoose, { Document, Schema, Types } from "mongoose";
 
 export interface ITask {
     name: String;
-    description: Text;
+    description: String;
     start: Date;
     finish: Date;
     status: String;

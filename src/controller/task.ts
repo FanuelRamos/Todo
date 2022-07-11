@@ -4,7 +4,7 @@ import Task from "./../models/task";
 
 const createTask = (request: Request, response: Response, next: NextFunction) => {
     const { name, description, start, finish } = request.body;
-
+    
     const task = new Task({
         _id: new mongoose.Types.ObjectId,
         name,
